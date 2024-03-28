@@ -35,3 +35,17 @@ submit the case and return the current string
 ### Daily Temperatures
 - [Decreasing Monotonic Stack](https://leetcode.com/problems/daily-temperatures/solutions/1574808/c-python-3-simple-solutions-w-explanation-examples-images-2-monotonic-stack-approaches)
 - "Thus, the pattern we see is that we **iterate forward till we find a warmer day** and that day will be the **answer for all elements before it that are cooler** (and not found a warmer day). Thus, we can maintain a stack consisting of indices of days which haven't found a warmer day."
+- Store the indexes on the stack
+- If one day is warmer than the last on the stack, that means every day in stack just met its warmer day
+    - For that day in the stack in ans ans[stack[-1]] calculate the distance to the current day i - stack[-1]
+    - Pop and move on
+
+### Car Fleet
+- First we sort the array from closest -> furthest away from destination
+- This is because the cars ahead will always block the ones behind, therefore they are the limiting factor
+    - For each car calculate the time it will take to get to the destination from that position
+- A new fleet is created only when the next car is slower than the car infront, creating a gap
+- If a car is faster than a car in front, then it catches up and forms a fleet with the car in front
+- We keep track of the global maximum time
+
+
