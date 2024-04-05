@@ -71,5 +71,31 @@
   - Assign .next and .random by using curr.next and curr.random within the maps .get
 - Return the head of old-to-new
 
+### Add Two Numbers
+- Keep track of a carry over value
+- Dummy node
+- If l1/l2 += onto carry and go to next
+- divmod(carry, 10) = carry // 10, carry % 10
+- Carry is the remainder of the division
+- Value is the modulo
+- Insert the value to a new ListNode
 
+### Linked List Cycle
+- Fast slow pointers
+- Try-Catch while n = n.next and nn = n.next.next
 
+### [Find the Duplicate Number](https://www.youtube.com/watch?v=wjYnzkAhcNk)
+- Use slow and fast pointers until we find the cycle
+- According to Floyds Cycle detection algorithm, from the start and from where slow == fast
+  - When these two pointers increment and intersect, that is where the cycle is from
+- Set slow2 = 0
+- Increment slow and slow2 until they intersect and return.
+
+### LRU Cache
+- Can be done using a hashmap store for O(1), -1 if not in store and an array with pop and append for LRU
+  - When we get, we reset the key in the cache by removing it and then appending it back on
+  - When we put, we also reset the key in the cache
+  - But we also pop the first index (least used) and then set that index in the store as -1
+- [Proper Doubly Linked list solution](https://leetcode.com/problems/lru-cache/solutions/45926/python-dict-double-linkedlist/)
+  - This just uses a node implementation that does the exact same thing as the array implementation
+  - Nice trick used to set a dummy node at the end of head and tail so that whenever we insert, we can assign head and tail to a non None value
