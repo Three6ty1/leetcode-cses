@@ -12,8 +12,8 @@
   - lo should + 1 and **exclude middle**
 - The first check is always if target < nums[mid] or target > nums[mid]
   - Opposite to two pointers!!!
-- If more than move left
-- If less than move right
+- If more than move the lo pointer up to mid (+ 1)
+- If less than move the hi pointer down to mid (-1)
 - Return nums[lo] if target
 
 ## Alternate version
