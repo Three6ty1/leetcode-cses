@@ -9,8 +9,8 @@
 ### Valid Palindrome
 - Two Pointers
     - l = 0, r = n
-    - While true, return early if false, increment left and decrement right seperately until both are alphanumeric 
-    numbers.
+    - While true, return early if false, increment left and decrement right seperately until both are alphanumeric numbers.
+    - Make sure l and r are in range l < r
     - Compare if they are the same
 - List reversal
     - Filter alnum on both and reverse one of the strings
