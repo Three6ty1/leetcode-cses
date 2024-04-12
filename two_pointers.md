@@ -27,13 +27,16 @@
 - Sort numbers
     - Smaller sums i.e. negative are on the left
     - Larger sums i.e. positive are on the right
-- Iterate through nums
-    - l = i + 1, r = n - 1
+- For iterate throguh nums
+- Since the array is sorted, if the current num is > 0, that means we have exhausted all negative numbers
+    - We cannot sum to 0 with positive numbers, so we break
+- Iterate i until nums[i] != nums[i - 1] so we avoid duplicates
+- l = i + 1, r = n - 1
+- Two pointers, Two sum
     - While iterating, check the sum of num[i] and num[i + 1] and num[n - 1]
-    - If **l**ess target, move **l**eft up
-    - If more target, move right down
-- While loop until l and r are not duplicates of their previous
-- Increment once more.
+    - If **l**ess target, move **l**eft up, If more target, move right down
+    - If the sum == 0, we add it to our result array
+    - Increment l and r until they do not equal their previous values, **Remember to do a final increment after the loop**
 
 ### Container with Most Water
 - The theory is going from max width and only incrementing on the max height guarantees that we find the maximum area.
