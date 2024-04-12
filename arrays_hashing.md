@@ -4,6 +4,13 @@
 - Use a hashmap for O(1) lookup times
   - Sets are implemented using hashmaps (Python)
 
+## Kadane's Algorithm (Maximum Subarray)
+- Initialise a local and global maximum to nums[0]
+- Loop from 1 to len(nums)
+- Local max = max(num, local_max + num)
+- Global max = max(global max, local max)
+- return global max
+
 ### Contains duplicate
 - Compare lengths and return result
 - Check if item in set O(1) and if not add to set O(1)

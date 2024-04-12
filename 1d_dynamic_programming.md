@@ -150,3 +150,22 @@
         - This is getting the maximum between the LIS that ends at dp[i] and the LIS at dp[j] + 1 including the current value
     - We continue doing from k - i since there might be an even longer subsequence than from 0 - k
 - Return max(dp) since we arent keeping track of max in a res (slows down time too much)
+
+### 01 Matrix
+- 2 approaches
+- BFS with queue
+    - Initialise every index on the matrix
+        - If 0, add to queue
+        - Otherwise, mark as -1 to indicate unvisited
+    - While the queue isn't empty
+        - Pop from queue (first loop is starting from 0)
+        - For each direction
+        - Check for boundaries and check that this current location is -1 (not visited)
+        - Assign the direction with the origin position + 1
+        - Append this position to the queue
+- Dynamic Programming
+    - Only process the 1 cells
+    - Since we can't dp on all 4 directions at a time due to not knowing if it was computed yet
+    - We restrict from top-left to bottom-right and bottom-right to top-left
+    - That means on the first pass, we calculate distance from the top and left adjacent cells + 1
+    - On the second pass, we calculate distance from the bottom + 1 and right + 1 adjactent cells and get minimum compared to the first pass
