@@ -41,12 +41,11 @@
 
 ### Product of Array Except Self
 - Two arrays pre and suf
-  - pre[i] = products num[j] <= i
-  - suf[i] = products num[j] >= i
-  - Then for each index of ans, we multiply the prefix product [i - 1] with the suffix product [i + 1] which is essentially getting the product excluding i
-- Space O(n) approach
-  - Use accumulate nums and mul for pre and then reverse the list [::-1] reverse again for suff
-  - Get the answer with multiplication, using 1 if index is out of range
+  - Init pre and suff as None for length n
+  - initialise the first values for prefix and suffix (end) as multiplication identity 1
+  - Then for each index of ans, we multiply the prefix product [i - 1] with the suffix product [i + 1] which is essentially getting the product excluding i from left to right
+  - Do the reverse for suffix going from right to left
+  - Build the final solution by appending pre[i] * suff[i] into res
 - Space O(1) (excluding output) approach
   - Init answer array with 1's since we're doing product
   - Since we skip each variable, we start curr at 1 and multiply ans[i] by curr. Then calculate the next curr by nums[i] to simulate "skipping" it
@@ -63,3 +62,14 @@
 - Then we check for y = x + 1. While y is in our set, we increment to see if the next consecutive is there.
   - We then check the difference of y - x and get the maximum between this and the previousd
 
+### Merge Intervals
+- O(n + nlogn) for loop once + sorting algo
+- Sort the interval array
+- Loop over intervals
+- If the result is not empty, compare if the hi of previous overlaps with lo of current
+  - Replace prev hi with the max of lo and hi
+- Otherwise append because it doesnt overlap
+
+- We can space optimise this by keeping track of an index of where the previous interval is, allowing us to perform the merge on the input
+- Instead of comparing to prev, compare interval at index with interval at i
+- Increment index before moving intervals[index] to intervals[i]

@@ -34,12 +34,14 @@
   - If this is true, return True
 
 ### Lowest Common Ancestor of a Binary Search Tree
-- Iterative approach
-- Get the smaller and larger values of the two nodes to find
-- Since BST left = smaller and right = larger,
-  - If root.val > large, move left
-  - If root.val < small, move right
-  - Until the small < root.val < large
+- DFS
+- Base case is that if not root, or root = p or q, we return the root
+  - This is because if p is the root, and we haven't found q yet, q must be in a deeper level therefore p must be the LCA
+  - If we are DFS'ing and trying to find the other root, we can pass back up the recursion without looking at children
+- If left and right contains a descendant
+  - That means p and q are on left or right, and the current node is the LCA
+  - Otherwise, one of the other branches must contain p and q, which would be the one that is not none
+    - return left or right
 
 ### Binary Tree Level Order Traversal
 - Keep track of 3 things

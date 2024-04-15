@@ -3,6 +3,7 @@
 ## Basic Principles
 - Prefix tree
 - Efficiently store and retrieve keys in a dataset of strings
+- Need to define a class for TrieNode outside of the normal class
 - TrieNode Datastructure
     - Hashmap of Letter -> TrieNode
     - A value that keeps track of if its the end of a string or not

@@ -55,3 +55,21 @@
 - If we don't find timestamp in the array
   - If the resulting hi timestamp is lte the timestamp, i.e. this was the most recent timestamp, we return it
   - Otherwise, there has been no previous timestamp, return "" 
+
+### Search in Rotated Sorted Array
+- lo = 0, hi = len(nums) and lo < hi
+- Two halves
+  - Find whether the target is in the rotated section or normal section of the array
+  - Normal [4 5 6] [1 2 3] Rotated
+  - Normal case
+    - target >= nums[0] > nums[mid]
+    - [4 5 6] [1 2 3]
+    -      t   m
+    - hi = mid
+  - Rotated case
+    - target < nums[0] < nums[mid]
+    - [4 5 6] [1 2 3] 
+    -      m   t
+    - lo = mid
+- The rest of the half of logic is normal binary sort
+- Exiting when mid == target

@@ -27,7 +27,8 @@
 
 ### Combination Sum
 - dfs(nums, target, path)
-- Every path we take we call dfs nums[i + 1:], target - nums[i] and appaend the current nums[i] onto path
+- Every path we take we call dfs nums[i:], target - nums[i] and appaend the current nums[i] onto path
+    - This is crucially nums[i:] because we can infinitely use the current num
 - This is the same pattern
 
 ### Permutations
