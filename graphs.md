@@ -14,3 +14,17 @@
 - If the course doesn't return early, we remove it from visited for backtracking
 - Set the prerequisite map for that node to empty to reduce computation time
 - Run the dfs starting from every course since the graph might be disconnected
+
+### Accounts Merge
+- 3 steps
+- Enumerate through accounts and create a mapping of email -> [accounts]
+  - "email@email.com": [1, 2]
+  - means email is present in accounts index 1 and 2
+- Write dfs(acc, emails) where emails is the current path
+  - Check that acc is not in visited
+  - Add acc to visited
+  - For each email in the acc
+    - Add to the current emails
+    - For every neighbour of the current email that we created using the mapping, dfs throguh those with the current path
+- Run dfs for every account, skipping it if its visited
+- Append emails to res after dfs with the name

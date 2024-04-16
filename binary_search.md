@@ -51,11 +51,10 @@
 
 ### Time Based Key-value store
 - Hashmap that stores map[key] with an array of (value, timestamp) tuples
-- If the timestamp matches index [1] in tuple, return value
-- If we don't find timestamp in the array
-  - If the resulting hi timestamp is lte the timestamp, i.e. this was the most recent timestamp, we return it
-  - Otherwise, there has been no previous timestamp, return "" 
-
+- If the timestamp matches with the timestamp in tuple, return value
+- BSearch with n, lo < hi, timestamp >= mid
+- After we exit the loop, if hi == 0 then we haven't found the index and return ""
+- Otherwise, [hi - 1] is the correct timestamp
 ### Search in Rotated Sorted Array
 - lo = 0, hi = len(nums) and lo < hi
 - Two halves
