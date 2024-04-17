@@ -131,8 +131,8 @@
 - Word set of the dict
 - Initialise dp to [False] * n + 1
 - Since it's bottoms up, initialise dp[n] to True
-- Loop -ve range
-    - We loop through j = i + 1 to n + 1
+- Loop -ve range n - 1
+    - We loop through j = i + 1 to n + 1 (this is why we needed dp to be n + 1)
     - The current characters were trying to get is i:j
     - The previous computed values are at dp[j]
     - If i:j is a valid word and dp[j] which is the rest of the array is a valid break
