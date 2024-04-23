@@ -51,7 +51,7 @@
 - Pop the first node out of the Queue
   - Append left and right to temporary
   - Temp stores the values to loop over in the next level
-- If Q is empty, that means we've added all the children of this node to the temp queue
+- If Q is empty, that means we've added all the children of this node to the temp queue-
   - Append all values of temp into the return array in their own level
   - Assign Q = temp to move down one level
   - Reset temp to an empty deque
@@ -64,4 +64,21 @@
   - **Do not loop over the queue itself**
 - Append outside the for loop as node would be assigned the last value
 
+### Construct Binary Tree from Preorder and Inorder Traversal
+- Preorder traversal will always display the root of the left subtrees first
+- Inorder traversal will give the left and right subtrees based around the root index
 
+- Base case where root is None
+- The root is preorder.pop(0)
+- The index of that in inorder will determine the left and right subtrees
+  - root.left = inorder[:root_index] is left subtree
+  - root.right = inorder[root_index + 1:] is right subtree
+- Recursively solve for left and right
+- Need to do it in this order
+
+- Can convert preorder into a deque for cheaper popleft operations
+- Can convert inorder into a map
+  - Number: index using enumerate
+  - But will need to recursively call using l and r indexes
+    - Checking for boundary where ind = l and ind = r (the boundaries cross over)
+    - Reducing r to root_ind - 1 or Increasing l to root_ind + 1 in each recursive call

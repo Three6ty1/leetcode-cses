@@ -58,7 +58,9 @@
     - Counter(sum(board, [])) is more than Counter(word).items()
 - Use a seen set of (row, col) location tuples to keep track of dfs path
 - dfs(row, col, i)
+    - i is the index on the word we are currently at
 - We only traverse on letters that are in the word
+    - Therefore if i == len(word), we've successfully found the word (since word indexes are from 0 to i - 1)
 - Check for row col out of index, check for row col in seen, check for board[row][col] matches letter
 - If we pass the checks, **backtrack** on the adjacent 4 tiles.
     - Add to seen,

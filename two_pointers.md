@@ -42,4 +42,4 @@
 - The theory is going from max width and only incrementing on the max height guarantees that we find the maximum area.
 - Keep track of maximum
 - Start l r from 0 and n - 1
-    - Increment the smaller height[r] or height[r]
+    - Increment the smaller height[l] or height[r]

@@ -169,3 +169,9 @@
     - We restrict from top-left to bottom-right and bottom-right to top-left
     - That means on the first pass, we calculate distance from the top and left adjacent cells + 1
     - On the second pass, we calculate distance from the bottom + 1 and right + 1 adjactent cells and get minimum compared to the first pass
+
+### Unique Paths
+- Initialise dp array m * n with 1
+- for m, then for n starting from 1
+    - i, j is the sum of i - 1, j and i, j - 1
+- Return the end value
