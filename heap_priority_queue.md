@@ -26,3 +26,19 @@
 - Maintain the heap by pushing a tuple of the (distance, (x, y))
 - Use nsmallest heap function to grab the k closest points and return only the points
 
+### Find Median From Data Stream
+- Have two arrays large and small
+- The small array is an inverted heap, meaning the largest is at [0]
+- The small array is always at n / 2 while large can be at n / 2 or n / 2 + 1
+- When we add num, if small == large, we insert into large
+    - heappush into large the result of the inverted heappushpop of -num into small
+    - Since small is inverted, we need to invert num
+    - And since large is not inverted we need to turn the - result of heappushpop into positive to insert into large
+- Otherwise large > small therefore, heappushpop into large and then push the inverted result into small
+    - Large + 1 num, then - 1 then small + 1 evening out the two
+- When we find median
+    - Large[0] is the upper half from smallest -> largest
+    - Small[0] is the lower half from (inverted) largest -> smallest
+- If the len of small == large, we have an even and take the / 2 
+    - Make sure to float() the denominator and have the numerator be .0
+- Else return the large[0] as the large is n / 2 + 1

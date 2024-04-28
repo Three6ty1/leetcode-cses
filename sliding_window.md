@@ -45,3 +45,33 @@
   - Decrement the charMap[s2[lo]]
   - Remove it if the entry == 0
   - Increment lo
+
+### Minimum Window Substring
+- Increase r until we have all chars in t
+- Decrease l to minimise the window while maintaining all chars in t
+  - Increment l to force revaluation
+  - Increment r always to look at next char
+- Edge case for len(t) > len(s)
+- Counter for t
+- l, r and missing at len(t)
+- Min_start and min_length init as len(s) + 1. We check this at the end for invalid input
+- While < len(s)
+  - If s[r] in the t_counter and the counter for the letter we want to find is > 0, we decrement the missing value
+    - Also decrement the counter
+  - While we have 0 missing values
+    - Update the minimum window with **r - l + 1** and min_length
+    - If the s[l] is a char in t, we increment its t_count
+    - If the t_count is now more than 0, we now dont have t in the current window, increment the missing value
+    - Always increment l
+- Check if the min_length hasnt changed from len(t) + 1
+
+### Trapping Rain Water
+- The other way for this question is the DP solution
+- Initialise left and right max to either ends
+- Set l and r to 1 and n - 2
+- While l <= r
+- Set the left and right max to the max of the current l and max and current r and max respectively
+- If else to check if either left or right is smaller
+  - The smaller maximum gets added to the total using l/r_max - height[l/r]
+  - Increment/Decrement respectively
+  

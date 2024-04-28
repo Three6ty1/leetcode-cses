@@ -92,10 +92,15 @@
 - Increment slow and slow2 until they intersect and return.
 
 ### LRU Cache
-- Can be done using a hashmap store for O(1), -1 if not in store and an array with pop and append for LRU
-  - When we get, we reset the key in the cache by removing it and then appending it back on
-  - When we put, we also reset the key in the cache
-  - But we also pop the first index (least used) and then set that index in the store as -1
 - [Proper Doubly Linked list solution](https://leetcode.com/problems/lru-cache/solutions/45926/python-dict-double-linkedlist/)
-  - This just uses a node implementation that does the exact same thing as the array implementation
-  - Nice trick used to set a dummy node at the end of head and tail so that whenever we insert, we can assign head and tail to a non None value
+  - Doubly linked list with key value prev next
+  - Store key -> node with a dictionary
+  - Initiate the struct head and tails by putting dummy head and tail nodes to avoid needing to check for null
+- Whenever something is "get" remove it from the linked list by linking node.prev and node.next together
+- Whenever something is "put"
+  - If the key exists in the cache, we are updating it. This remove it from the linked list since we're LRU
+  - Else If the cache + 1 length is more than the capacity, then we remove from list and del from cache
+- Insert to the end of the list (Most recently used)
+
+- Two helper functions insert(node) and remove(node)
+- Insert needs to remember to reassign prev.next, node.next, node.prev and tail.prev

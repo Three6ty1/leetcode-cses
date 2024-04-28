@@ -82,3 +82,41 @@
   - But will need to recursively call using l and r indexes
     - Checking for boundary where ind = l and ind = r (the boundaries cross over)
     - Reducing r to root_ind - 1 or Increasing l to root_ind + 1 in each recursive call
+
+### Kth Smallest Element in a BST
+- Initialise self.k and self.res
+- DFS
+  - Base case if root == None or k <= 0
+    - Early return if we found it (at k == 0) 
+  - DFS left, then decrement k 
+  - Check for k == 0
+  - DFS right
+
+### Serialize and Deserialize Binary Tree
+- Serialize
+  - dfs
+  - Base case where root == None, return 'x'
+  - Otherwise return root.val and then recursion on root.left root.right seperated by "," or any other character
+- Deserialize
+  - dfs again
+  - Split the serialized into an array
+  - Keep track of a self.i to iterate over the array
+  - If i == len data then we return
+  - Get the value and increment i
+  - Return if basecase == x
+  - Call dfs on left and right
+
+### Word Ladder
+- BFS with visited
+- The key to this question is creating an adjacency hashmap for a missing letter in a word to the possible outcomes in the wordList
+  - For each word, for each index
+  - '_ot': ['bot', 'hot', 'lot'], 'h_t': ['hot', 'hat', 'hit'] etc.
+  - Use list splicing to exlude a letter word[:i] + "_" + word[i + 1:]
+- Another key is to have the tuples in the BFS deque also keep track of the current depth
+- Initialise beginWord with depth 1 and + 1 when adding to the deque
+- Standard pop left
+- For the range in the length of the word, we start replacing that index in the current word with the empty char
+- Get all neighbouring words using the hashmap and loop through
+  - Check visited
+  - If the word is the found word, return the depth + 1
+  - Otherwise append neighbour to visited and append to queue with depth + 1

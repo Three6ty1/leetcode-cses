@@ -175,3 +175,16 @@
 - for m, then for n starting from 1
     - i, j is the sum of i - 1, j and i, j - 1
 - Return the end value
+
+### Trapping Rain Water
+- The other solution is the Sliding Window solution
+- Initialise maxleft and maxright arrays of size n
+- Starting from +1 because there is no maxleft of the leftmost
+    - Compute the maxleft of i as the max of the height of the directly left bar at height[i - 1] and the maximum of the previously computed max bar at maxleft[i - 1]
+- Starting from n - 2 becuase there is no maxright of the rightmost
+    - Same logic but just + 1
+- For each bar i in range len height
+    - The minimum level is between maxLeft and maxRight
+    - If the level is larger than the current bar height, forming a dip
+    - Add to the total
+    
