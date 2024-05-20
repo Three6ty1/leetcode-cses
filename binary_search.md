@@ -22,6 +22,16 @@
 - lo = mid + 1
 - hi = mid - 1
 
+### Insert Interval
+- Keep track of the lowest and highest range for the new interval
+  - Init to [0] and [1]
+- Key is to build the array while we loop through and find the correct place to insert
+- If the upper bound of the interval is smaller than the lowest new interval range, we insert into the left array
+- If the lower bound of the interval is bigger than the highest new interval range, we insert into the right array
+  - Otherwise, the new interval overlaps with the current interval
+    - We take the minimum lower bound and maximum upper bound 
+- Return the left + the kept track of ranges + right of the array
+
 ### Search a 2D Matrix
 - Normal binary search target ver
 - The range is of row_num * col_num - 1

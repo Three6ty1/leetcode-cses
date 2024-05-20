@@ -160,7 +160,7 @@
     - While the queue isn't empty
         - Pop from queue (first loop is starting from 0)
         - For each direction
-        - Check for boundaries and check that this current location is -1 (not visited)
+        - Check for boundaries and check that this current location IS -1 (not visited)
         - Assign the direction with the origin position + 1
         - Append this position to the queue
 - Dynamic Programming
@@ -175,6 +175,16 @@
 - for m, then for n starting from 1
     - i, j is the sum of i - 1, j and i, j - 1
 - Return the end value
+
+- Draw out the cell table
+- All the cells on the bottom and right side edges have only 1 valid path to go to the end
+- Starting from the end (bottom right) if we look at a smaller 2x2 square, the amount of paths it can take is 2 (down, right and right, down) which is also the sum of the edges
+    - (DFS)
+    - Therefore the unique paths can be built from the previous i + 1, j and i, j + 1
+    - If we dfs, base case where
+        - i or j is not in range -> return 0
+        - i = m - 1 and j = n - 1 respectively (0 indexed)
+    - then return the dfs(i + 1, j) + dfs(i, j + 1)
 
 ### Trapping Rain Water
 - The other solution is the Sliding Window solution

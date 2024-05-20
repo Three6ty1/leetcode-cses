@@ -2,7 +2,7 @@
 
 ## Basic Principles
 - Bro it's a stack.
-- Use the last in, last out property
+- Use the last in, first out property
 - Python deque type
 
 ### Valid Parenthesis
