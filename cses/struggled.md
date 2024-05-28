@@ -20,3 +20,10 @@
 - Shift n-1 from A to B (aux C)
 - Shift A to C
 - Shift n-1 from B to C (aux A)
+
+1623_apple_division and 1624_chessboard_and_queens
+- Both have the same theory behind it
+- Recursion and return at base case where we're at the end
+- For each location choose to either place it here (and then recurse) or not place it
+- Get the max or the sum
+
