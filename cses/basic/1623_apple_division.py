@@ -1,16 +1,13 @@
 n = int(input())
-apples = sorted([int(x) for x in input().split(" ")])[::-1]
+apples = [int(x) for x in input().split(" ")]
 
-# greedy matching?
+def recursive(arr, sum1, sum2):
+    if not arr:
+        return abs(sum1 - sum2)
+    
+    choose = recursive(arr[1:], sum1 + arr[0], sum2)
+    not_choose = recursive(arr[1:], sum1, sum2 + arr[0])
 
-s1 = 0
-s2 = 0
+    return min(choose, not_choose)
 
-for a in apples:
-    if s1 > s2:
-        s2 += a
-    else:
-        s1 += a
-
-
-print(abs(s1 - s2))
+print(recursive(apples, 0, 0))
