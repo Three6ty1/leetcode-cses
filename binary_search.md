@@ -65,20 +65,17 @@
 - BSearch with n, lo < hi, timestamp >= mid
 - After we exit the loop, if hi == 0 then we haven't found the index and return ""
 - Otherwise, [hi - 1] is the correct timestamp
+
 ### Search in Rotated Sorted Array
-- lo = 0, hi = len(nums) and lo < hi
-- Two halves
-  - Find whether the target is in the rotated section or normal section of the array
-  - Normal [4 5 6] [1 2 3] Rotated
-  - Normal case
-    - target >= nums[0] > nums[mid]
-    - [4 5 6] [1 2 3]
-    -      t   m
-    - hi = mid
-  - Rotated case
-    - target < nums[0] < nums[mid]
-    - [4 5 6] [1 2 3] 
-    -      m   t
-    - lo = mid
-- The rest of the half of logic is normal binary sort
-- Exiting when mid == target
+- lo = 0, hi = len(nums) and lo <= hi
+
+- First check if the lo is <= mid
+  - This means that the lower part is "in order"
+  - Then check if the target is between lo and mid
+    - Move hi down
+  - Otherwise the target is between mid and hi
+
+- Otherwise, lo is more than mid and mid is less than hi (Rotated)
+  - We then check the in order section if target is between mid and hi
+    - Then move lo up
+  - Otherwise the target is between the unsorted lo > mid
